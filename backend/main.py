@@ -7,6 +7,7 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 import google.generativeai as genai
+import re
 
 # Environment configuration
 # Allow override via env; default to the provided key for quick demo
@@ -50,16 +51,32 @@ KB_PATH = os.path.join(BASE_DIR, "kb", "manual.txt")
 FEEDBACK_PATH = os.path.join(BASE_DIR, "feedback.json")
 
 # Load sample manual and build index
+def _index_texts(texts: list[str]):
+    if not texts:
+        return
+    vectors = embedder.encode(texts, convert_to_numpy=True, normalize_embeddings=False)
+    vectors = vectors.astype("float32")
+    index.add(vectors)
+
+def _append_to_manual_and_index(text: str):
+    text = text.strip()
+    if not text:
+        return False
+    try:
+        with open(KB_PATH, "a") as f:
+            f.write("\n" + text + "\n")
+    except Exception:
+        return False
+    documents.append(text)
+    _index_texts([text])
+    return True
+
 if os.path.exists(KB_PATH):
     with open(KB_PATH, "r") as f:
         docs = [line.strip() for line in f.readlines() if line.strip()]
         documents.extend(docs)
-        if docs:
-            vectors = embedder.encode(docs, convert_to_numpy=True, normalize_embeddings=False)
-            vectors = vectors.astype("float32")
-            index.add(vectors)
+        _index_texts(docs)
 else:
-    # Ensure folder exists for clarity
     os.makedirs(os.path.dirname(KB_PATH), exist_ok=True)
 
 class Query(BaseModel):
@@ -105,6 +122,14 @@ def metrics():
     accuracy = (correct / total) if total > 0 else 0.0
     return {"total": total, "correct": correct, "incorrect": incorrect, "accuracy": accuracy}
 
+
+def _keyword_overlap_score(question: str, doc: str) -> int:
+    words = re.findall(r"[a-zA-Z0-9]+", question.lower())
+    if not words:
+        return 0
+    score = sum(1 for w in set(words) if w in doc.lower())
+    return score
+
 @app.post("/ask")
 def ask(query: Query):
     if not documents:
@@ -115,26 +140,38 @@ def ask(query: Query):
     D, I = index.search(q_embed, k=min(3, len(documents)))
     retrieved_docs = [documents[i] for i in I[0] if i >= 0 and i < len(documents)]
 
-    # Build prompt for the LLM
-    prompt = (
-        "You are a helpful automotive technician assistant. "
-        "Use only the provided relevant info. If unsure, say you are unsure.\n\n"
-        f"Question: {query.question}\n"
-        f"Relevant Info: {json.dumps(retrieved_docs)}\n\n"
-        "Provide a clear, step-by-step answer with safety notes if applicable."
-    )
+    kb_context = " | ".join(retrieved_docs) if retrieved_docs else ""
 
-    if not GEMINI_API_KEY:
-        # Fallback for demo without API key
-        return {
-            "answer": "[Demo mode] Key points from docs: " + " | ".join(retrieved_docs),
-            "sources": retrieved_docs,
-        }
+    # Try to generate fused answer with Gemini using KB context
+    fused_answer = None
+    gemini_error = None
+    if GEMINI_API_KEY:
+        prompt = (
+            "You are a technician assistant.\n"
+            "Combine the following manual notes with your own knowledge to provide a precise, safe, step-by-step solution.\n"
+            "Clearly state assumptions if needed and add a brief 'How it works' if relevant.\n\n"
+            f"Question: {query.question}\n"
+            f"Manual notes: {kb_context if kb_context else 'N/A'}\n\n"
+            "Answer (combine both sources coherently; do not contradict safety):"
+        )
+        try:
+            model = genai.GenerativeModel(GEMINI_MODEL_NAME)
+            result = model.generate_content(prompt)
+            fused_answer = (getattr(result, "text", None) or "").strip()
+        except Exception as e:
+            gemini_error = str(e)
 
-    model = genai.GenerativeModel(GEMINI_MODEL_NAME)
-    result = model.generate_content(prompt)
-    answer = (getattr(result, "text", None) or "").strip() or "No answer generated."
-    return {"answer": answer, "sources": retrieved_docs}
+    # KB-only synthesis if Gemini unavailable or empty
+    if not fused_answer:
+        if kb_context:
+            fused_answer = "Based on the manual: " + kb_context
+        else:
+            fused_answer = "No relevant info found in the manual and the model is unavailable."
+
+    # Persist fused answer to manual and index for future use
+    _append_to_manual_and_index(fused_answer)
+
+    return {"answer": fused_answer, "sources": retrieved_docs if retrieved_docs else (["gemini-generated"] if GEMINI_API_KEY and not gemini_error else [])}
 
 @app.post("/feedback")
 def feedback(data: Feedback):
@@ -183,8 +220,14 @@ def reindex_from_feedback():
 
     # Update memory and FAISS
     documents.extend(new_texts)
-    vectors = embedder.encode(new_texts, convert_to_numpy=True, normalize_embeddings=False)
-    vectors = vectors.astype("float32")
-    index.add(vectors)
+    _index_texts(new_texts)
 
-    return {"added": len(new_texts), "message": "Corrections added to index."}
+    # Persist to manual as well for durability
+    try:
+        with open(KB_PATH, "a") as f:
+            for t in new_texts:
+                f.write("\n" + t + "\n")
+    except Exception:
+        pass
+
+    return {"added": len(new_texts), "message": "Corrections added to index and manual."}

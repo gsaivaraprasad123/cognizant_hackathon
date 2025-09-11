@@ -56,3 +56,55 @@ Clutch wear leads to slipping, burning smell, and poor acceleration.
 Differential or CV joint wear causes clicking, clunks, or vibration on turns.
 Suspension bushing wear causes clunks, uneven tire wear, and poor handling.
 Tire underinflation increases heat and reduces fuel economy.
+
+Electrical manuals – internal working notes:
+Ohm's law relates voltage (V), current (I), and resistance (R): V = I × R.
+Series circuits add resistances; parallel circuits reduce equivalent resistance.
+Alternators generate AC power converted to DC via rectifier diodes.
+Starter circuits use high-current solenoids; voltage drop testing isolates bad cables.
+ECUs read sensors (MAP/MAF, O2, TPS) and control actuators via PWM signals.
+CAN bus transmits messages over twisted pairs; check termination resistors and frame errors.
+Relays use coils to switch higher loads; test coil resistance and contact continuity.
+
+Refrigerator manual – internal working notes:
+Vapor-compression cycle: compressor raises refrigerant pressure/temperature; condenser rejects heat; expansion device drops pressure; evaporator absorbs heat.
+Thermostat cycles compressor to maintain set temperature; defrost heater melts frost on evaporator.
+Common failures: low refrigerant charge, dirty condenser coils, failed start relay, bad compressor, iced evaporator due to fan failure or defrost fault.
+Diagnostics: listen for compressor start/stop, measure amp draw, check continuity of relay/overload, verify evaporator fan and defrost timer/heater continuity.
+Safety: unplug before service; avoid damaging sealed system; recover refrigerant per regulations.
+
+## Troubleshooting and Repairing a Leaking Radiator Hose
+
+**Safety Precautions:**
+
+* **Always allow the engine to cool completely before working on it.** Hot coolant can cause severe burns.
+* **Wear safety glasses and gloves.** Coolant is corrosive and can irritate skin and eyes.
+* **Work in a well-ventilated area.**  Coolant fumes can be harmful.
+* **Dispose of used coolant properly.**  Do not pour it down the drain; check your local regulations for proper disposal methods.
+
+
+**Step-by-Step Solution:**
+
+1. **Identify the Leak:**  Visually inspect the radiator hoses, paying close attention to the hose clamps and the hose connections to the radiator and engine. Look for cracks, holes, bulges, or signs of deterioration.  Note the location of the leak precisely.  If the leak isn't immediately apparent, consider also checking the radiator cap (for leaks around the seal), the water pump (look for weeping around the shaft seal), and the radiator itself (for pinhole leaks).
+
+2. **Determine the Cause:**  If the leak is from a hose, determine if the cause is a deteriorated hose or a faulty clamp.  Loose or damaged clamps are a common culprit.   If the leak is not from a hose, further investigation (beyond the scope of this simple guide) might be needed to determine if it’s a water pump, gasket, or radiator issue.
+
+3. **Prepare for Repair (Hose Leak):** Gather the necessary materials: a new radiator hose of the correct size and type (check your vehicle's specifications), new hose clamps (preferably worm-drive type for better clamping force), a flat-head screwdriver (potentially), pliers (potentially), and rags or absorbent material to clean up spills.
+
+4. **Replace the Leaking Hose:**
+    * **Loosen the hose clamps:** Carefully loosen the clamps using a flat-head screwdriver or pliers.  Avoid damaging the hose.
+    * **Remove the old hose:** Gently pull the old hose off the connection points (radiator and engine). Be prepared for some coolant to spill, so have rags ready.
+    * **Install the new hose:** Carefully slide the new hose onto the connection points. Ensure it's seated properly.
+    * **Tighten the hose clamps:** Securely tighten the new hose clamps. Do not overtighten, which could damage the hose.
+
+5. **Refill Coolant:** After replacing the hose (or completing any other repair), carefully refill the cooling system with the correct type of coolant for your vehicle. Check your owner's manual for the recommended coolant type and mixture ratio (usually a 50/50 mix of coolant and distilled water).
+
+6. **Check for Leaks:** Start the engine and let it run for a few minutes, monitoring the system for any further leaks.
+
+7. **Bleed the Air:** If air bubbles are present in the coolant system (often indicated by inconsistent heater operation), carefully bleed the air from the system according to your vehicle’s specifications (consult your owner's manual).
+
+
+**How it Works:** The cooling system circulates coolant (antifreeze/water mixture) through the engine to prevent overheating.  A leak in the radiator hose compromises this system, potentially leading to overheating and engine damage.  Replacing the faulty hose restores the integrity of the cooling system.
+
+
+**Assumptions:** This solution assumes a basic understanding of car maintenance and the ability to safely work on a vehicle.  If you are uncomfortable performing these steps, seek assistance from a qualified mechanic.  This guide specifically addresses leaks from radiator hoses.  Other leaks, such as those originating from the water pump or head gasket, require more extensive repair and should be handled by a professional.
