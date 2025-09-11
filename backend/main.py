@@ -10,7 +10,6 @@ import google.generativeai as genai
 import re
 
 # Environment configuration
-# Allow override via env; default to the provided key for quick demo
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyDXrwV7F-mi1tThNS9b1bVnYhdDOuaoy9E")
 if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
@@ -20,7 +19,7 @@ GEMINI_MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
 
 app = FastAPI(title="Technician Chatbot API")
 
-# CORS configuration (allow local dev frontends)
+# CORS configuration 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -142,7 +141,7 @@ def ask(query: Query):
 
     kb_context = " | ".join(retrieved_docs) if retrieved_docs else ""
 
-    # Try to generate fused answer with Gemini using KB context
+    # Trying to generate fused answer with Gemini using KB context
     fused_answer = None
     gemini_error = None
     if GEMINI_API_KEY:

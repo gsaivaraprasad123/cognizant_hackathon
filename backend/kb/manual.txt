@@ -108,3 +108,85 @@ Safety: unplug before service; avoid damaging sealed system; recover refrigerant
 
 
 **Assumptions:** This solution assumes a basic understanding of car maintenance and the ability to safely work on a vehicle.  If you are uncomfortable performing these steps, seek assistance from a qualified mechanic.  This guide specifically addresses leaks from radiator hoses.  Other leaks, such as those originating from the water pump or head gasket, require more extensive repair and should be handled by a professional.
+
+Based on the manual: Electrical manuals – internal working notes: | Refrigerator manual – internal working notes: | ECUs read sensors (MAP/MAF, O2, TPS) and control actuators via PWM signals.
+
+Based on the manual: Common failures: low refrigerant charge, dirty condenser coils, failed start relay, bad compressor, iced evaporator due to fan failure or defrost fault. | Faulty sensors trigger warning lights; scan OBD-II for codes. | Blend door actuator failure leads to wrong air temperature or vent selection.
+
+Based on the manual: EGR valve failure can cause rough idle, stalling, and increased emissions. | Hydraulic system leaks from worn hoses or seals. | Common failures: low refrigerant charge, dirty condenser coils, failed start relay, bad compressor, iced evaporator due to fan failure or defrost fault.
+
+Based on the manual: Based on the manual: EGR valve failure can cause rough idle, stalling, and increased emissions. | Hydraulic system leaks from worn hoses or seals. | Common failures: low refrigerant charge, dirty condenser coils, failed start relay, bad compressor, iced evaporator due to fan failure or defrost fault. | EGR valve failure can cause rough idle, stalling, and increased emissions. | Electrical system issues:
+
+## Troubleshooting Motor Overheating
+
+This procedure addresses motor overheating.  **Safety First:** Always allow the engine to cool completely before working on it.  Wear appropriate safety glasses and gloves.  High temperatures and pressurized systems pose risks.
+
+**Step 1: Visual Inspection (Engine Cool)**
+
+1. **Check Coolant Level:** Locate the coolant reservoir (often translucent plastic).  Check the level; it should be within the minimum and maximum markings.  If low, carefully add coolant of the correct type (check your owner's manual).  **Do not open a hot radiator cap.**
+2. **Inspect for Leaks:** Carefully examine all coolant hoses, the radiator, and the engine block for any visible leaks. Look for stains, wet spots, or dripping coolant.
+3. **Examine the Radiator:** Check for any debris (leaves, insects, etc.) clogging the radiator fins.  A clogged radiator restricts airflow, leading to overheating.  Clean gently with a soft brush or compressed air.
+4. **Inspect Fan:** Check the radiator fan for damage, loose blades, or unusual noises. If the fan is electric, listen for any unusual sounds during operation. A faulty fan motor might be the culprit.
+
+
+**Step 2:  Further Diagnosis (Engine Cool)**
+
+1. **Check Thermostat:** The thermostat regulates coolant flow. A faulty thermostat (stuck closed) prevents coolant from circulating, leading to overheating.  This requires replacing the thermostat (consult your owner's manual for specifics; often requires draining coolant).
+2. **Coolant Condition:** Check the coolant's condition.  Dirty or rusty coolant indicates sediment buildup, which can clog the radiator.  Flushing and replacing the coolant may be necessary.
+
+**Step 3: Advanced Troubleshooting (May require professional assistance)**
+
+1. **Worn Piston Rings/Combustion Leaks:**  These issues are less likely to cause sudden overheating but can contribute to gradual overheating over time.  They often manifest with other symptoms like loss of compression, blue smoke from the exhaust, and reduced engine power.  Diagnosis requires compression testing and a mechanic's expertise.
+2. **Warped Cylinders:** This is a severe problem typically caused by extreme overheating. It requires engine repair or replacement and is not something a technician assistant should attempt to diagnose or repair.
+
+
+**How it Works:**
+
+The engine cooling system works by circulating coolant (usually a mixture of water and antifreeze) through the engine block and radiator.  The coolant absorbs heat from the engine and is then cooled in the radiator via airflow (aided by the radiator fan).  The thermostat controls the coolant flow to maintain optimal operating temperature.  Any disruption in this process, such as a blockage, leak, or malfunctioning component, can cause overheating.
+
+
+**Assumptions:**
+
+* The vehicle's cooling system is a standard automotive design.
+* The technician assistant has basic mechanical knowledge and access to appropriate tools (e.g., coolant, funnel, soft brush).
+* The overheating is not due to external factors such as ambient temperature excessively high loads.
+
+
+**Disclaimer:** This guide provides general troubleshooting steps.  If the problem persists or you are unsure about any step, consult a qualified mechanic.  Improper repair attempts can lead to further damage and safety hazards.
+
+**Troubleshooting Refrigerator Not Cooling**
+
+This troubleshooting guide assumes basic safety precautions are followed, including unplugging the refrigerator before any internal work.  Improper handling of refrigerants requires professional certification;  if you suspect a refrigerant leak, **contact a qualified technician immediately.** Do not attempt to repair leaks yourself.
+
+**Step 1: Check the Obvious**
+
+1. **Power Supply:** Ensure the refrigerator is plugged in securely and the outlet is functioning. Check the circuit breaker or fuse box for tripped breakers or blown fuses.
+2. **Door Seals:** Close the refrigerator door firmly. Inspect the door seals for any cracks, tears, or debris preventing a tight seal.  A poor seal allows warm air to enter, reducing cooling efficiency.
+
+
+**Step 2: Inspect Airflow and Filters**
+
+1. **Locate Air Filters:** Consult your refrigerator's manual to identify the location of any air filters.  Many refrigerators don't have readily accessible filters like HVAC systems.  If present, proceed to step 2.2.
+2. **Clean or Replace Filters (if applicable):** If filters are present, remove them and clean or replace them according to the manufacturer's instructions.  Dirty filters restrict airflow, impacting cooling performance.
+
+
+**Step 3: Assess for Refrigerant Issues (Caution!)**
+
+1. **Unusual Sounds or Noises:** Listen for unusual noises from the compressor (located usually at the back or bottom of the refrigerator).  Unusual sounds like loud clicking, grinding, or humming could indicate a malfunctioning compressor.
+2. **Frost Build-up:** Inspect the evaporator coils (usually located at the back or bottom of the fridge, depending on model). Excessive frost build-up suggests potential issues with the refrigerant, possibly due to a leak or malfunctioning defrost system.  **Do not attempt to defrost the coils yourself unless explicitly stated in your manual**.  Excessive frost suggests a potential safety issue and requires professional attention.
+3. **Refrigerant Leak Suspicion:**  If you suspect a refrigerant leak (indicated by excessive frost or lack of cooling despite other checks), **do not attempt to repair it.** Refrigerant is under high pressure and potentially hazardous. Contact a qualified HVAC technician immediately.
+
+
+**Step 4: Compressor Check**
+
+1. **Compressor Operation:** Listen for the compressor to cycle on and off regularly.  If it’s continuously running or not running at all, there's likely an issue with the compressor or its associated components. This requires professional assessment and repair.
+
+
+**How it Works:**
+
+Refrigerators use a refrigerant to absorb heat from inside the refrigerator and release it outside.  This process requires a functioning compressor to circulate the refrigerant, a condenser to release heat, and an evaporator to absorb heat.  Dirty filters, refrigerant leaks, or a faulty compressor can disrupt this process, preventing effective cooling.
+
+
+**Important Note:** If the problem persists after completing these steps, contact a qualified appliance repair technician.  Attempting repairs beyond your skill level can damage the appliance or cause personal injury.
+
+Based on the manual: Battery drains quickly because of bad battery, faulty alternator, or parasitic electrical drain. | Battery not charging may be due to a loose alternator belt or faulty alternator. | Corroded terminals at battery or electrical connections.
