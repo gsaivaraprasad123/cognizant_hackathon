@@ -1,0 +1,20 @@
+[
+  {
+    "question": "Why is engine overheating?",
+    "answer": "Engine overheating can be caused by a low coolant level, a faulty thermostat, or a broken radiator fan.",
+    "feedback": "helpful\n",
+    "correction": "But sometimes its due to coolant too"
+  },
+  {
+    "question": "Why engine overheating",
+    "answer": "Engine overheating can be caused by a low coolant level, a faulty thermostat, or a broken radiator fan.",
+    "feedback": "helpful",
+    "correction": "Other causes include a broken radiator fan, a blown head gasket, low engine oil, or even excessive engine load or extreme weathe"
+  },
+  {
+    "question": "Why my cars oil is leaking",
+    "answer": "Based on the provided information, your oil leak is likely caused by worn gaskets or a cracked oil pan.  I cannot provide further diagnosis or repair steps without more information.",
+    "feedback": "helpful",
+    "correction": "sometimes its due to An engine oil leak occurs when oil escapes the sealed confines of the engine, often caused by worn or damaged gaskets and seals, a loose or damaged oil drain plug, a cracked oil pan, or an improperly installed oil filter."
+  }
+]
