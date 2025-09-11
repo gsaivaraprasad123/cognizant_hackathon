@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 
 interface ChatMessage {
@@ -14,8 +14,23 @@ function App() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [lastAnswer, setLastAnswer] = useState<{ answer: string; sources: string[] } | null>(null)
-  const [feedback, setFeedback] = useState('')
+  const [showCorrection, setShowCorrection] = useState(false)
   const [correction, setCorrection] = useState('')
+  const [metrics, setMetrics] = useState<{ total: number; correct: number; incorrect: number; accuracy: number } | null>(null)
+
+  const accuracyPct = useMemo(() => metrics ? Math.round(metrics.accuracy * 100) : 0, [metrics])
+
+  const fetchMetrics = async () => {
+    try {
+      const res = await fetch(`${API_BASE}/metrics`)
+      const data = await res.json()
+      setMetrics(data)
+    } catch {}
+  }
+
+  useEffect(() => {
+    fetchMetrics()
+  }, [])
 
   const sendQuestion = async () => {
     const question = input.trim()
@@ -34,6 +49,8 @@ function App() {
       const sources = (data.sources || []) as string[]
       setMessages((prev) => [...prev, { role: 'assistant', content: answer, sources }])
       setLastAnswer({ answer, sources })
+      setShowCorrection(false)
+      setCorrection('')
     } catch (e) {
       setMessages((prev) => [...prev, { role: 'assistant', content: 'Error contacting backend.' }])
     } finally {
@@ -41,71 +58,101 @@ function App() {
     }
   }
 
-  const sendFeedback = async () => {
+  const sendFeedback = async (isCorrect: boolean) => {
     if (!lastAnswer) return
     try {
+      const latestQuestion = messages.filter(m => m.role === 'user').slice(-1)[0]?.content || ''
       await fetch(`${API_BASE}/feedback`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          question: messages.filter(m => m.role === 'user').slice(-1)[0]?.content || '',
+          question: latestQuestion,
           answer: lastAnswer.answer,
-          feedback,
-          correction: correction || null,
+          feedback: isCorrect ? 'correct' : 'incorrect',
+          correction: isCorrect ? null : (correction || null),
         }),
       })
-      setFeedback('')
+      setShowCorrection(false)
       setCorrection('')
-      alert('Feedback sent!')
-    } catch (e) {
-      alert('Failed to send feedback')
-    }
+      fetchMetrics()
+    } catch (e) {}
   }
 
   return (
-    <div style={{ maxWidth: 800, margin: '0 auto', padding: 16 }}>
-      <h2>Technician Chatbot</h2>
-      <div style={{ display: 'flex', gap: 8 }}>
-        <input
-          style={{ flex: 1, padding: 8 }}
-          value={input}
-          placeholder="Ask a technician question..."
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => { if (e.key === 'Enter') sendQuestion() }}
-        />
-        <button onClick={sendQuestion} disabled={loading}>Ask</button>
-      </div>
-
-      <div style={{ marginTop: 16, border: '1px solid #ddd', borderRadius: 8, padding: 12, minHeight: 200 }}>
-        {messages.map((m, idx) => (
-          <div key={idx} style={{ marginBottom: 12 }}>
-            <strong>{m.role === 'user' ? 'You' : 'Assistant'}:</strong>
-            <div>{m.content}</div>
-            {m.sources && m.sources.length > 0 && (
-              <div style={{ fontSize: 12, color: '#555', marginTop: 4 }}>
-                Sources: {m.sources.join(' | ')}
-              </div>
-            )}
+    <div>
+      <div className="header">
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div style={{ height: 32, width: 32, borderRadius: 8, background: '#3b82f6' }} />
+            <span style={{ fontWeight: 700 }}>Technician Chatbot</span>
           </div>
-        ))}
-        {loading && <div>Thinking...</div>}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ fontSize: 12, color: '#475569' }}>Accuracy</span>
+            <span className="badge">{metrics ? `${accuracyPct}%` : '—'}</span>
+          </div>
+        </div>
       </div>
 
-      <div style={{ marginTop: 16, display: 'grid', gap: 8 }}>
-        <textarea
-          placeholder="Feedback (e.g., helpful, not helpful, missing steps)"
-          value={feedback}
-          onChange={(e) => setFeedback(e.target.value)}
-          rows={3}
-          style={{ padding: 8 }}
-        />
-        <input
-          placeholder="Correction (optional): Provide the right answer or step"
-          value={correction}
-          onChange={(e) => setCorrection(e.target.value)}
-          style={{ padding: 8 }}
-        />
-        <button onClick={sendFeedback} disabled={!lastAnswer}>Send Feedback</button>
+      <div className="container" style={{ paddingTop: 24 }}>
+        <div className="card" style={{ padding: 20, marginBottom: 16 }}>
+          <h1 style={{ margin: '0 0 6px 0' }}>Your AI Technician Assistant</h1>
+          <p style={{ margin: 0, color: '#475569' }}>Ask troubleshooting questions across Engine, Electrical, and HVAC. We ground answers in your knowledge base and learn from your feedback.</p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 16 }}>
+          <div className="card" style={{ overflow: 'hidden' }}>
+            <div style={{ padding: 12, borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>Chat</div>
+            <div className="chat">
+              {messages.map((m, idx) => (
+                <div key={idx} className={`msg ${m.role === 'user' ? 'right' : ''}`}>
+                  <div className={`bubble ${m.role === 'user' ? 'user' : 'assistant'}`}>
+                    <div style={{ whiteSpace: 'pre-wrap' }}>{m.content}</div>
+                    {m.sources && m.sources.length > 0 && (
+                      <div className="sources">Sources: {m.sources.join(' | ')}</div>
+                    )}
+                  </div>
+                </div>
+              ))}
+              {loading && <div style={{ fontSize: 14, color: '#64748b' }}>Thinking…</div>}
+            </div>
+            <div style={{ padding: 12, borderTop: '1px solid #e2e8f0', background: '#fff' }}>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <input
+                  className="input"
+                  value={input}
+                  placeholder="Ask a technician question…"
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') sendQuestion() }}
+                />
+                <button onClick={sendQuestion} disabled={loading} className="button-primary">Ask</button>
+              </div>
+              {lastAnswer && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 10 }}>
+                  <span style={{ fontSize: 14, color: '#475569' }}>Was this helpful?</span>
+                  <button onClick={() => sendFeedback(true)} className="button-soft ok">Correct</button>
+                  <button onClick={() => setShowCorrection((s) => !s)} className="button-soft">Incorrect</button>
+                </div>
+              )}
+              {showCorrection && (
+                <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+                  <textarea
+                    className="input"
+                    placeholder="Provide the correct steps or answer…"
+                    value={correction}
+                    onChange={(e) => setCorrection(e.target.value)}
+                    rows={3}
+                    style={{ height: 96 }}
+                  />
+                  <button onClick={() => sendFeedback(false)} className="button-soft">Send</button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ textAlign: 'center', fontSize: 12, color: '#94a3b8', padding: 24 }}>
+        © {new Date().getFullYear()} Technician Chatbot
       </div>
     </div>
   )

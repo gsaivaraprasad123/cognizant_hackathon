@@ -1,3 +1,58 @@
-Engine overheating can be caused by low coolant level, faulty thermostat, or broken radiator fan.
+Engine overheating can be caused by low coolant level, dirty or leaking coolant, faulty thermostat, broken radiator fan, clogged radiator, worn piston rings, leaks in combustion system, overheating causing warped cylinders.
 Battery not charging may be due to a loose alternator belt or faulty alternator.
 Oil leakage is often caused by worn gaskets or cracked oil pan.
+Engine misfire can result from worn spark plugs, faulty ignition coils, or bad fuel injectors.
+Dirty engine coolant leads to sediment buildup that clogs the radiator, causing overheating.
+Excessive engine noise can be due to knocking from spark knock, backfiring, hissing, or popping noises.
+Loss of power may be caused by poor compression from worn piston rings, cracked cylinders, or valve issues.
+Decreasing fuel economy can result from dirty fuel injectors or faulty oxygen sensors.
+Rough engine idle may be caused by vibration from misfiring cylinders or faulty spark plugs.
+Oil starvation occurs due to lack of oil or failing oil pump, leading to engine wear.
+Coolant leaks typically originate from radiator hoses, water pump, or gaskets.
+Oil sludge buildup from old oil degrades engine lubrication.
+Engine stalling may be caused by fuel delivery problems (clogged fuel filter, failing fuel pump).
+Burning smells usually indicate oil leaks, worn belts, or slipping clutch.
+White exhaust smoke may indicate coolant entering the combustion chamber (head gasket failure).
+Blue exhaust smoke generally indicates burning oil (worn rings, valve seals).
+Black exhaust smoke often indicates a rich fuel mixture (faulty injectors, O2 sensor).
+Timing belt/chain wear can cause rough running, noise, or catastrophic failure if broken.
+EGR valve failure can cause rough idle, stalling, and increased emissions.
+MAF/MAP sensor faults cause poor performance and stalling.
+
+Electrical system issues:
+Battery drains quickly because of bad battery, faulty alternator, or parasitic electrical drain.
+Lights flicker or dim due to loose wiring, bad connections, or failing alternator.
+Starter motor not engaging can be caused by faulty starter relay or broken starter motor.
+Electrical shorts cause blown fuses; inspect wiring insulation and chafing points.
+Faulty sensors trigger warning lights; scan OBD-II for codes.
+Damaged wiring harness results in intermittent faults.
+Alternator belt slip causes the battery to not charge.
+Grounding issues cause erratic sensor readings and random resets.
+Corroded battery terminals or loose clamps lead to no-start conditions.
+
+HVAC problems:
+HVAC system not cooling or heating due to dirty air filters, low refrigerant, or faulty compressor.
+Weak airflow caused by clogged ducts or broken blower motor.
+Thermostat malfunction leads to incorrect temperature readings or failed sensor.
+Strange noises originate from loose fan blades or failing motors.
+Water leaks caused by clogged condensate drain line.
+Electrical faults can cause system shutdown.
+Refrigerant leaks reduce efficiency and may freeze coils.
+Frozen evaporator coils caused by low refrigerant or airflow issues.
+Blend door actuator failure leads to wrong air temperature or vent selection.
+Heater core blockage causes poor cabin heat and coolant smell inside cabin.
+
+General mechanical and electrical issues:
+Hydraulic system leaks from worn hoses or seals.
+Vibrations due to misaligned shafts or unbalanced components.
+Corroded terminals at battery or electrical connections.
+Faulty relays or switches cause intermittent operation.
+Mechanical wear increases friction and heat.
+Loose belts or chains cause noise and loss of power transmission.
+Wheel bearing wear results in humming and increased rolling resistance.
+Brake drag (sticking caliper) causes pulling, heat, and reduced fuel economy.
+Transmission slipping due to low fluid, worn clutches, or solenoid faults.
+Clutch wear leads to slipping, burning smell, and poor acceleration.
+Differential or CV joint wear causes clicking, clunks, or vibration on turns.
+Suspension bushing wear causes clunks, uneven tire wear, and poor handling.
+Tire underinflation increases heat and reduces fuel economy.

@@ -75,6 +75,36 @@ class Feedback(BaseModel):
 def root():
     return {"status": "ok"}
 
+@app.get("/metrics")
+def metrics():
+    total = 0
+    correct = 0
+    incorrect = 0
+    if os.path.exists(FEEDBACK_PATH):
+        try:
+            with open(FEEDBACK_PATH, "r") as f:
+                feedback_items = json.load(f)
+                if not isinstance(feedback_items, list):
+                    feedback_items = []
+        except Exception:
+            feedback_items = []
+        for item in feedback_items:
+            if not isinstance(item, dict):
+                continue
+            total += 1
+            fb = (item.get("feedback") or "").lower()
+            corr = (item.get("correction") or "").strip()
+            if corr:
+                incorrect += 1
+            elif any(k in fb for k in ["incorrect", "not helpful", "wrong", "bad"]):
+                incorrect += 1
+            elif any(k in fb for k in ["correct", "helpful", "good", "useful", "accurate"]):
+                correct += 1
+            else:
+                pass
+    accuracy = (correct / total) if total > 0 else 0.0
+    return {"total": total, "correct": correct, "incorrect": incorrect, "accuracy": accuracy}
+
 @app.post("/ask")
 def ask(query: Query):
     if not documents:
