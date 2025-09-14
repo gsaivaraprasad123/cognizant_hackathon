@@ -83,7 +83,11 @@ function App() {
       <div className="header">
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ height: 32, width: 32, borderRadius: 8, background: '#3b82f6' }} />
+            <img
+              src="/Chatbot%20Chat%20Message.jpg"
+              alt="Technician Chatbot Logo"
+              style={{ height: 32, width: 32, borderRadius: 8, objectFit: 'cover', background: '#fff' }}
+            />
             <span style={{ fontWeight: 700 }}>Technician Chatbot</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
