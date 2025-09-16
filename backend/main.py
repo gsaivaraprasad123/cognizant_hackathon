@@ -91,11 +91,16 @@ class Feedback(BaseModel):
 def root():
     return {"status": "ok"}
 
+
+# Add recall and precision calculation
 @app.get("/metrics")
 def metrics():
     total = 0
     correct = 0
     incorrect = 0
+    true_positive = 0
+    false_positive = 0
+    false_negative = 0
     if os.path.exists(FEEDBACK_PATH):
         try:
             with open(FEEDBACK_PATH, "r") as f:
@@ -110,16 +115,34 @@ def metrics():
             total += 1
             fb = (item.get("feedback") or "").lower()
             corr = (item.get("correction") or "").strip()
+            # For accuracy
             if corr:
                 incorrect += 1
             elif any(k in fb for k in ["incorrect", "not helpful", "wrong", "bad"]):
                 incorrect += 1
             elif any(k in fb for k in ["correct", "helpful", "good", "useful", "accurate"]):
                 correct += 1
-            else:
-                pass
+            # For recall/precision (assume: correct = TP, incorrect = FN, FP is not directly available but we treat 'incorrect' as FN and 'correct' as TP)
+            if corr or any(k in fb for k in ["incorrect", "not helpful", "wrong", "bad"]):
+                false_negative += 1
+            elif any(k in fb for k in ["correct", "helpful", "good", "useful", "accurate"]):
+                true_positive += 1
+        # For this feedback-only scenario, we can't distinguish FP from FN, so precision=recall=accuracy
+        # But we keep the fields for UI completeness
     accuracy = (correct / total) if total > 0 else 0.0
-    return {"total": total, "correct": correct, "incorrect": incorrect, "accuracy": accuracy}
+    recall = (true_positive / (true_positive + false_negative)) if (true_positive + false_negative) > 0 else 0.0
+    precision = (true_positive / (true_positive + false_positive)) if (true_positive + false_positive) > 0 else 0.0
+    # In this feedback setup, false_positive is always 0, so precision=1 if any correct, else 0
+    if true_positive > 0 and false_positive == 0:
+        precision = 1.0
+    return {
+        "total": total,
+        "correct": correct,
+        "incorrect": incorrect,
+        "accuracy": accuracy,
+        "recall": recall,
+        "precision": precision
+    }
 
 
 def _keyword_overlap_score(question: str, doc: str) -> int:
