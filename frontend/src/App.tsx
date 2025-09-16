@@ -303,7 +303,15 @@ function App() {
           color: "#94a3b8",
           padding: 24,
         }}
-      ></div>
+      >
+        <div style={{ maxWidth: 480, margin: "0 auto", color: "#f59e42", background: "#fffbe9", border: "1px solid #fde68a", borderRadius: 8, padding: 16, fontSize: 13 }}>
+          <div style={{ fontWeight: 700, marginBottom: 4 }}>⚠️ Disclaimer</div>
+          <div>This chatbot is a prototype built for hackathon demonstration purposes.<br/>
+          It is not a replacement for certified technician expertise.<br/>
+          Responses are based on available knowledge sources and may need further validation in real-world use.<br/>
+          Future versions will undergo rigorous testing and validation before deployment.</div>
+        </div>
+      </div>
     </div>
   );
 }
