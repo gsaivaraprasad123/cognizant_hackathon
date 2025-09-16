@@ -186,22 +186,37 @@ function App() {
             </div>
             <div className="chat">
               {messages.map((m, idx) => (
-  <div key={idx} className={`msg ${m.role === 'user' ? 'right' : ''}`}>
-    <div className={`bubble ${m.role === 'user' ? 'user' : 'assistant'}`}>
-      <ReactMarkdown
-        children={m.content}
-        components={{
-          p: ({node, ...props}) => <p style={{ margin: '0 0 8px 0' }} {...props} />,
-          strong: ({node, ...props}) => <strong style={{ fontWeight: 600 }} {...props} />,
-          li: ({node, ...props}) => <li style={{ marginLeft: 16 }} {...props} />,
-        }}
-      />
-      {m.sources && m.sources.length > 0 && (
-        <div className="sources">Sources: {m.sources.join(' | ')}</div>
-      )}
-    </div>
-  </div>
-))}
+                <div
+                  key={idx}
+                  className={`msg ${m.role === "user" ? "right" : ""}`}
+                >
+                  <div
+                    className={`bubble ${
+                      m.role === "user" ? "user" : "assistant"
+                    }`}
+                  >
+                    <ReactMarkdown
+                      children={m.content}
+                      components={{
+                        p: ({ node, ...props }) => (
+                          <p style={{ margin: "0 0 8px 0" }} {...props} />
+                        ),
+                        strong: ({ node, ...props }) => (
+                          <strong style={{ fontWeight: 600 }} {...props} />
+                        ),
+                        li: ({ node, ...props }) => (
+                          <li style={{ marginLeft: 16 }} {...props} />
+                        ),
+                      }}
+                    />
+                    {m.sources && m.sources.length > 0 && (
+                      <div className="sources">
+                        Sources: {m.sources.join(" | ")}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
 
               {loading && (
                 <div style={{ fontSize: 14, color: "#64748b" }}>Thinking…</div>
@@ -288,9 +303,7 @@ function App() {
           color: "#94a3b8",
           padding: 24,
         }}
-      >
-        © {new Date().getFullYear()} Technician Chatbot
-      </div>
+      ></div>
     </div>
   );
 }

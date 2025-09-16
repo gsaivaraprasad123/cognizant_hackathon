@@ -543,3 +543,93 @@ Blue smoke is caused by the combustion of engine oil.  Oil enters the combustion
 Based on the results of your inspection and testing, determine the most likely cause.  Minor issues like a faulty PCV valve or small oil leaks might require simple repairs.  More severe issues, such as worn piston rings or valve stem seals, may require more extensive repairs or engine overhaul, and should be addressed by a qualified mechanic.
 
 **Assumption:** This guide assumes a basic understanding of engine components and some mechanical aptitude.  If you are not comfortable performing these steps, consult a qualified mechanic.
+
+Troubleshooting Blue Exhaust Smoke: A Step-by-Step Guide
+
+**Safety Precautions:**  Always allow the engine to cool completely before performing any inspection or repair.  Wear appropriate safety glasses and gloves. Work in a well-ventilated area.  Engine oil and other fluids are hazardous; dispose of them properly according to local regulations.  Never work on a running engine.
+
+**How it Works:** Blue exhaust smoke is caused by engine oil entering the combustion chamber and burning. This usually indicates wear in components responsible for sealing the oil within the engine.  The specific component(s) at fault needs to be identified.
+
+**Step-by-Step Troubleshooting:**
+
+1. **Visual Inspection:**  With the engine cool, carefully inspect the engine bay for visible signs of oil leaks. Look for oil stains or drips around the valve cover, piston rings (if accessible), turbocharger (if equipped), and the PCV valve.  Pay close attention to areas where oil might leak into the intake manifold or directly into the combustion chamber.
+
+2. **Check the PCV System:** The Positive Crankcase Ventilation (PCV) system removes crankcase gases, which include some oil vapor. A faulty PCV valve can allow excessive oil vapor to enter the intake manifold and be burned, contributing to blue smoke. Inspect the PCV valve for blockage or damage. Replacement is relatively inexpensive and should be considered early in the diagnostic process.
+
+3. **Assess Oil Consumption:**  Check your engine oil level regularly.  Excessive oil consumption (more than the manufacturer's specified rate) strongly suggests oil is entering the combustion chamber.  Record oil level and mileage to monitor consumption rate.
+
+4. **Compression Test (Advanced):** A compression test measures the pressure within each cylinder when the piston is at top dead center.  Low compression in one or more cylinders indicates worn piston rings, allowing oil to seep past the pistons.  This test requires specialized equipment.
+
+5. **Leak-Down Test (Advanced):**  A leak-down test helps pinpoint the source of low compression.  Air is introduced into a cylinder, and the technician listens for leaks, determining if they're from the piston rings, valves, or head gasket.  This test requires specialized equipment.
+
+6. **Inspect Valve Stem Seals (Advanced):** This requires removing the valve cover and inspecting the valve stem seals for wear or damage. This is a more involved repair that requires mechanical expertise.  Visually inspect for oil residue around the valve stems as this indicates seal leakage.
+
+7. **Turbocharger Inspection (If Equipped):**  If your vehicle has a turbocharger, inspect it for leaks around the seals. Oil leaks from the turbocharger are a common cause of blue smoke.  This often requires professional assessment and repair.
+
+8. **Professional Diagnosis:** If the above steps don't identify the cause, it's crucial to consult a qualified mechanic.  They have the tools and expertise to perform more advanced diagnostics (like the compression and leak-down tests mentioned above) and correctly identify and repair the problem.
+
+**Assumptions:** This guide assumes a basic understanding of engine components and some familiarity with basic automotive maintenance.  Some steps require specialized tools and expertise; professional assistance may be necessary.
+
+
+This systematic approach will help pinpoint the source of the blue exhaust smoke.  Addressing the underlying cause is crucial to prevent further engine damage.
+
+Troubleshooting Blue Exhaust Smoke from a Cool Engine: A Step-by-Step Guide
+
+**Safety Precautions:** Always allow the engine to cool completely before performing any inspection or repair. Wear appropriate safety glasses and gloves. Work in a well-ventilated area. Engine oil and other fluids are hazardous; dispose of them properly according to local regulations. Never work on a running engine.
+
+**How it Works:** Blue exhaust smoke indicates that engine oil is entering the combustion chamber and burning.  This usually points to a failure in the seals preventing oil from entering the cylinders.  The goal is to identify the specific failing component.
+
+
+**Step-by-Step Troubleshooting:**
+
+1. **Visual Inspection (Easy):** With the engine completely cool, carefully inspect the engine bay for visible signs of oil leaks. Look for oil stains, drips, or residue around the valve cover, the area around the base of the engine where the pistons reside (if accessible), the turbocharger (if equipped), and the PCV valve. Pay close attention to areas where oil could leak into the intake manifold or directly into the combustion chamber.  Use a flashlight to assist in seeing in tight spaces.
+
+2. **PCV Valve Inspection (Easy):** The Positive Crankcase Ventilation (PCV) system removes crankcase gases, including oil vapor. A malfunctioning PCV valve can allow excessive oil vapor into the intake manifold, leading to blue smoke.  Locate the PCV valve (refer to your vehicle's manual if needed), and inspect it for any signs of blockage, damage, or excessive oil buildup. Replacement is inexpensive and is often a quick fix.
+
+3. **Oil Consumption Assessment (Easy):** Check your engine oil level using the dipstick. Compare this to the level at your last oil change and note the miles driven since then. Excessive oil consumption (significantly higher than the manufacturer's recommended rate) strongly suggests oil is entering the combustion chamber.  Record oil level and mileage to accurately monitor consumption rate.
+
+4. **Compression Test (Intermediate/Advanced):** A compression test measures the pressure within each cylinder when the piston is at top dead center. Low compression in one or more cylinders indicates worn piston rings, allowing oil to leak past the pistons. This test requires a compression tester and is usually best performed by a mechanic.
+
+5. **Leak-Down Test (Advanced):** A leak-down test pinpoints the source of low compression. Air is introduced into a cylinder, and the technician listens for leaks to determine if they're from the piston rings, valves, or head gasket. This test requires specialized equipment and is best left to professionals.
+
+6. **Valve Stem Seal Inspection (Advanced):** Inspecting valve stem seals often requires removing the valve cover which can be a complex process.  However, a visual check can be made around the valve stems for oil residue which suggests leaking seals.  If oil is evident, professional help is advisable.
+
+7. **Turbocharger Inspection (Advanced, if equipped):**  If your vehicle has a turbocharger, visually inspect it for any signs of oil leaks around its seals.  Oil leaks from the turbocharger are a common cause of blue smoke, and repair often requires specialized tools and expertise.  This is a job best left to professionals.
+
+8. **Professional Diagnosis (If Necessary):** If steps 1-7 don't identify the cause, seek professional help from a qualified mechanic.  They possess the tools and expertise to perform advanced diagnostics (like compression and leak-down tests), accurately identify the problem, and repair it correctly.
+
+
+**Assumptions:**  This guide assumes some basic automotive knowledge.  Some steps require specialized tools and expertise; professional assistance may be required, particularly for steps 4, 5, 6, and 7.  Access to the vehicle's owner's manual is beneficial for locating components and understanding specific maintenance recommendations.
+
+My issue is still not resolved: Thermostat Not Responding; System Not Heating or Cooling Properly.
+
+**Before You Begin:**
+
+1. **Safety First:** Turn off the power to the HVAC system at the breaker box. This is crucial to prevent electrical shock.
+
+2. **Gather Tools:** You will likely need a flat-head screwdriver, possibly a Phillips head screwdriver depending on your thermostat model, and potentially a voltage tester (though this is best left to a qualified professional if you are unsure).
+
+**Troubleshooting Steps:**
+
+1. **Check Power Supply:**
+    * **Verify Breaker:** Ensure the circuit breaker for your HVAC system is not tripped. Reset it if necessary.
+    * **Thermostat Power:** Some thermostats have a separate power switch. Check if this switch is on.
+
+2. **Inspect Wiring Connections (Proceed with Caution):**
+    * **Visual Inspection:** Carefully examine the wires connected to the thermostat. Look for any loose, damaged, or corroded wires.  **Do not touch any wires while the power is on.**
+    * **Secure Loose Connections:** If any wires are loose, carefully tighten them.  Use your screwdriver to gently but firmly tighten the screws securing the wires to the thermostat.  Ensure each wire is firmly connected in the correct terminal.
+
+3. **Check Thermostat Battery (If Applicable):**
+    * Many digital thermostats require batteries. Check the battery compartment and replace the batteries if necessary with fresh batteries of the correct type and voltage.
+
+4. **Test the Thermostat (Use Caution):**
+    * **If comfortable with electrical testing, carefully use a voltage tester to ensure power is reaching the thermostat.** This step is best left to a qualified professional unless you have experience and are confident in your ability to handle electrical components safely. Misuse can cause electric shock.
+
+5. **Test for System Operation (Indirectly):**
+    * After completing the above steps, turn the power back on at the breaker box.
+    * Manually operate the HVAC system at the furnace/air handler unit itself (if accessible and safe to do so; check your unit manual).  This bypasses the thermostat to test if the unit functions correctly, indicating whether the problem lies solely with the thermostat or elsewhere in the system.
+
+**How it Works:**  The thermostat acts as a control switch, sending signals to the HVAC system to turn on heating or cooling based on your temperature settings.  If the power, wiring, or the thermostat itself is faulty, the system won't receive the necessary signals to operate properly.
+
+
+**If the problem persists after these steps, or if you are uncomfortable with any of these steps,  consult a qualified mechanic or HVAC technician.**  Improper repairs can cause further damage to your system and potentially create safety hazards.  Do not attempt repairs beyond your skill level.
